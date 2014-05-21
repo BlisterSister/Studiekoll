@@ -85,13 +85,13 @@ public class InputActivity extends ActionBarActivity {
 
 		//Recovering the spinners
 		Spinner logYearSpinner = (Spinner) findViewById(R.id.log_year_spinner);
-		Spinner logMonthSpinner = (Spinner) findViewById(R.id.log_month_spinner);
-		Spinner logDaySpinner = (Spinner) findViewById(R.id.log_day_spinner);
+		Spinner logStudyPeriodSpinner = (Spinner) findViewById(R.id.log_study_period_spinner);
+		Spinner logStudyWeekSpinner = (Spinner) findViewById(R.id.log_study_week_spinner);
 
 		//Getting selected values from spinners
 		String logYear = (String) logYearSpinner.getSelectedItem();
-		String logMonth = (String) logMonthSpinner.getSelectedItem();
-		String logDay = (String) logDaySpinner.getSelectedItem();
+		String logMonth = (String) logStudyPeriodSpinner.getSelectedItem();
+		String logDay = (String) logStudyWeekSpinner.getSelectedItem();
 
 		//Formatting the date for the database (yyyy-mm-dd)
 		logDate = logYear + "-" + logMonth + "-" + logDay;
@@ -129,16 +129,16 @@ public class InputActivity extends ActionBarActivity {
 
 			//Initialising the different spinner-objects
 			Spinner logYearSpinner = (Spinner) rootView.findViewById(R.id.log_year_spinner);
-			Spinner logMonthSpinner = (Spinner) rootView.findViewById(R.id.log_month_spinner);
-			Spinner logDaySpinner = (Spinner) rootView.findViewById(R.id.log_day_spinner);
+			Spinner logMonthSpinner = (Spinner) rootView.findViewById(R.id.log_study_period_spinner);
+			Spinner logDaySpinner = (Spinner) rootView.findViewById(R.id.log_study_week_spinner);
 
 			// Create the different ArrayAdapters using the string array and a default spinner layout
 			ArrayAdapter<CharSequence> yearAdapter = ArrayAdapter.createFromResource(getActivity(),
 			        R.array.year_array, android.R.layout.simple_spinner_item);
 			ArrayAdapter<CharSequence> monthAdapter = ArrayAdapter.createFromResource(getActivity(),
-			        R.array.month_array, android.R.layout.simple_spinner_item);
+			        R.array.study_period_array, android.R.layout.simple_spinner_item);
 			ArrayAdapter<CharSequence> dayAdapter = ArrayAdapter.createFromResource(getActivity(),
-			        R.array.day_array, android.R.layout.simple_spinner_item);
+			        R.array.study_week_array, android.R.layout.simple_spinner_item);
 
 			// Apply the adapters to the spinners
 			logYearSpinner.setAdapter(yearAdapter);

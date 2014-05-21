@@ -78,6 +78,15 @@ public class MainActivity extends ActionBarActivity {
     }
     
     /**
+     * Called when the user clicks the category_button
+     * @param view
+     */
+    public void createDataManagementActivity(View view){
+    	Intent categoryIntent = new Intent(this, DataManagementActivity.class);
+    	startActivity(categoryIntent);
+    }
+    
+    /**
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {

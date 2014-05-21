@@ -11,53 +11,23 @@
         <item>2020</item>
     </string-array>
     
-    <string-array name="month_array">
-        <item>01</item>
-        <item>02</item>
-        <item>03</item>
-        <item>04</item>
-        <item>05</item>
-        <item>06</item>
-        <item>07</item>
-        <item>08</item>
-        <item>09</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item> 	
+    <string-array name="study_period_array">
+        <item>LP1</item>
+        <item>LP2</item>
+        <item>LP3</item>
+        <item>LP4</item> 	
     </string-array>
     
-    <string-array name="day_array">
-        <item>01</item>
-        <item>02</item>
-        <item>03</item>
-        <item>04</item>
-        <item>05</item>
-        <item>06</item>
-        <item>07</item>
-        <item>08</item>
-        <item>09</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-        <item>14</item>
-        <item>15</item>
-        <item>16</item>
-        <item>17</item>
-        <item>18</item>
-        <item>19</item>
-        <item>20</item>
-        <item>21</item>
-        <item>22</item>
-        <item>23</item>
-        <item>24</item>
-        <item>25</item>
-        <item>26</item>
-        <item>27</item>
-        <item>28</item>
-        <item>29</item>
-        <item>30</item>
-        <item>31</item>
+    <string-array name="study_week_array">
+        <item>LV1</item>
+        <item>LV2</item>
+        <item>LV3</item>
+        <item>LV4</item>
+        <item>LV5</item>
+        <item>LV6</item>
+        <item>LV7</item>
+        <item>LV8</item>
+        <item>LV9</item>
     </string-array>
     
 </resources>

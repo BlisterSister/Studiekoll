@@ -42,18 +42,18 @@
         	android:prompt="@string/year_prompt" />
         
         <Spinner
-        	android:id="@+id/log_month_spinner"
+        	android:id="@+id/log_study_period_spinner"
         	android:layout_height="wrap_content"
         	android:layout_width="wrap_content"
         	android:spinnerMode="dialog" 
-        	android:prompt="@string/month_prompt"/>
+        	android:prompt="@string/study_period_prompt"/>
         		
         <Spinner
-        	android:id="@+id/log_day_spinner"
+        	android:id="@+id/log_study_week_spinner"
         	android:layout_height="wrap_content"
         	android:layout_width="wrap_content"
         	android:spinnerMode="dialog"
-        	android:prompt="@string/day_prompt" />
+        	android:prompt="@string/study_week_prompt" />
         
     </LinearLayout>
     

@@ -11,30 +11,37 @@
 
 	<Button
 	    android:id="@+id/graphics_button"
-	    android:layout_width="280dp"
+	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:text="@string/button_graphics"
 	    android:onClick="createGraphActivity" />
 
 	<Button
 	    android:id="@+id/input_button"
-	    android:layout_width="280dp"
+	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:text="@string/button_input"
 	    android:onClick="createInputActivity" />
 
 	<Button 
 	    android:id="@+id/category_button"
-	    android:layout_width="280dp"
+	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:text="@string/button_category"
 	    android:onClick="createCategoryActivity" />
 
 	<Button
 	    android:id="@+id/help_button"
-	    android:layout_width="280dp"
+	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:text="@string/button_help"
 	    android:onClick="createHelpActivity" />
+	
+	<Button
+	    android:id="@+id/data_management_button"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text="@string/button_data_management"
+	    android:onClick="createDataManagementActivity" />
 
 </LinearLayout>

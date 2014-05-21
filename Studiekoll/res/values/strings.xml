@@ -31,10 +31,10 @@
     <string name="to_prompt">Till</string>
     <string name="show_button_text">Visa</string>
     <string name="year_prompt">Välj år</string>
-    <string name="month_prompt">Välj månad</string>
-    <string name="day_prompt">Välj dag</string>
+    <string name="study_period_prompt">Välj läsperiod</string>
+    <string name="study_week_prompt">Välj läsvecka</string>
     <string name="title_activity_input">Inmatning</string>
-    <string name="input_message">Här för du in studietid och datum</string>
+    <string name="input_message">Här för du in studietid och tillfälle</string>
     <string name="send_input_button">Lagra inmatad data</string>
     <string name="help_prompt">Behöver du hjälp?</string>
     <string name="ok_button_text">OK!</string>
@@ -47,5 +47,6 @@
     <string name="show_details_button_text">Detaljer</string>
     <string name="title_activity_details">Detaljer</string>
     <string name="category_prompt">Kategori</string>
+    <string name="button_data_management">Datahantering</string>
 
 </resources>

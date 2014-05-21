@@ -36,7 +36,7 @@
         android:layout_weight="3"
         android:orientation="horizontal" >
     
-        <!-- Date/category control layout -->
+        <!-- Date control layout -->
         <LinearLayout 
             android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
@@ -61,17 +61,17 @@
     			    android:spinnerMode="dialog" />
 
 				<Spinner
-				    android:id="@+id/from_month_spinner"
+				    android:id="@+id/from_study_period_spinner"
 				    android:layout_width="wrap_content"
 	    			android:layout_height="wrap_content"
-	    			android:prompt="@string/month_prompt"
+	    			android:prompt="@string/study_period_prompt"
     			    android:spinnerMode="dialog" />
 
 				<Spinner
-		    		android:id="@+id/from_day_spinner"
+		    		android:id="@+id/from_study_week_spinner"
 		    		android:layout_width="wrap_content"
 	    			android:layout_height="wrap_content" 
-	    			android:prompt="@string/day_prompt"
+	    			android:prompt="@string/study_week_prompt"
     			    android:spinnerMode="dialog" />
 
 			</LinearLayout> <!-- From date control layout end -->
@@ -96,68 +96,30 @@
     			    android:spinnerMode="dialog" />
 
 				<Spinner
-				   	android:id="@+id/to_month_spinner"
+				   	android:id="@+id/to_study_period_spinner"
 		    		android:layout_width="wrap_content"
 	    			android:layout_height="wrap_content"
-	    			android:prompt="@string/month_prompt"
+	    			android:prompt="@string/study_period_prompt"
     			    android:spinnerMode="dialog" />
 
 				<Spinner
-			    	android:id="@+id/to_day_spinner"
+			    	android:id="@+id/to_study_week_spinner"
 					android:layout_width="wrap_content"
 	    			android:layout_height="wrap_content"
-	    			android:prompt="@string/day_prompt"
+	    			android:prompt="@string/study_week_prompt"
     			    android:spinnerMode="dialog" />
 
 			</LinearLayout> <!-- To date control layout end -->
 
-			<!-- Category control -->
-			<LinearLayout 
-			    android:layout_width="fill_parent"
-       			android:layout_height="fill_parent"
-       			android:orientation="horizontal" >
-
-			    <TextView
-	   			    android:layout_width="0dp"
-	   			    android:layout_weight="1"
-	   			    android:layout_height="wrap_content"
-	   			    android:text="@string/category_prompt" />
-
-				<Spinner 
-			    	android:id="@+id/show_category_spinner"
-			    	android:layout_width="0dp"
-			    	android:layout_weight="2"
-			    	android:layout_height="wrap_content"
-			    	android:spinnerMode="dialog"
-			    	android:prompt="@string/category_spinner_prompt" />	    
-
-			</LinearLayout> <!-- Category control ends -->
-
-		</LinearLayout> <!-- Date/category control layout end-->
-
-		<!-- Button layout -->	
-		<LinearLayout 
-		    android:layout_width="wrap_content"
-       		android:layout_height="wrap_content"
-       		android:orientation="vertical"
-       		android:gravity="center_horizontal|center_vertical">
+		</LinearLayout> <!-- Date control layout end-->
 
 		    <Button 
-	        	android:layout_width="fill_parent"
-	        	android:layout_height="fill_parent"
+	        	android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"
 	        	android:text="@string/show_button_text"
-	        	android:gravity="center_horizontal|center_vertical"
+	        	android:layout_gravity="center_horizontal|center_vertical"
 	        	android:onClick="showGraph" />
 
-		    <Button 
-	        	android:layout_width="fill_parent"
-	        	android:layout_height="fill_parent"
-	        	android:text="@string/show_details_button_text"
-	        	android:gravity="center_horizontal|center_vertical"
-	        	android:onClick="showDetails" />
-
-		</LinearLayout> <!-- Button layout ends -->
-
-    </LinearLayout> <!-- Bottom control layout end --> 
+	</LinearLayout> <!-- Bottom control layout end --> 
     
 </LinearLayout>

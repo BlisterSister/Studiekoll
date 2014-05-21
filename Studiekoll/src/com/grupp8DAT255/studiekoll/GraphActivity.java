@@ -66,19 +66,19 @@ public class GraphActivity extends ActionBarActivity {
 	public void showGraph(View view){
 		//Recovering the spinners
 		Spinner fromYearSpinner = (Spinner) findViewById(R.id.from_year_spinner);
-		Spinner fromMonthSpinner = (Spinner) findViewById(R.id.from_month_spinner);
-		Spinner fromDaySpinner = (Spinner) findViewById(R.id.from_day_spinner);
+		Spinner fromStudyPeriodSpinner = (Spinner) findViewById(R.id.from_study_period_spinner);
+		Spinner fromStudyWeekSpinner = (Spinner) findViewById(R.id.from_study_week_spinner);
 		Spinner toYearSpinner = (Spinner) findViewById(R.id.to_year_spinner);
-		Spinner toMonthSpinner = (Spinner) findViewById(R.id.to_month_spinner);
-		Spinner toDaySpinner = (Spinner) findViewById(R.id.to_day_spinner);
+		Spinner toStudyPeriodSpinner = (Spinner) findViewById(R.id.to_study_period_spinner);
+		Spinner toStudyWeekSpinner = (Spinner) findViewById(R.id.to_study_week_spinner);
 
 		//Getting the selected value from the spinners
 		String fromYear = (String) fromYearSpinner.getSelectedItem() ;
-		String fromMonth = (String) fromMonthSpinner.getSelectedItem();
-		String fromDay = (String) fromDaySpinner.getSelectedItem();
+		String fromMonth = (String) fromStudyPeriodSpinner.getSelectedItem();
+		String fromDay = (String) fromStudyWeekSpinner.getSelectedItem();
 		String toYear = (String) toYearSpinner.getSelectedItem();
-		String toMonth = (String) toMonthSpinner.getSelectedItem();
-		String toDay = (String) toDaySpinner.getSelectedItem();
+		String toMonth = (String) toStudyPeriodSpinner.getSelectedItem();
+		String toDay = (String) toStudyWeekSpinner.getSelectedItem();
 
 		//Formatting the dates for the database ("yyyy-mm-dd")
 		String fromDate = '"' + fromYear + "-" + fromMonth + "-" + fromDay + '"';
@@ -116,15 +116,6 @@ public class GraphActivity extends ActionBarActivity {
 
 		}
 
-	/**
-	 * Is called when show details button is clicked
-	 * @param view
-	 */
-	public void showDetails(View view){
-		Intent detailsIntent = new Intent(this, DetailsActivity.class);
-		startActivity(detailsIntent);
-	}
-
 	public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {
@@ -137,45 +128,29 @@ public class GraphActivity extends ActionBarActivity {
 			View rootView = inflater.inflate(R.layout.fragment_graph,
 					container, false);
 
-			//Creating an array from category database table
-			ArrayList<String> categoryNames = new ArrayList<String>(0);
-			Cursor categoryCursor = db.rawQuery("SELECT * FROM Categories", null);
-
-			if (categoryCursor.moveToFirst()){
-				do{
-					categoryNames.add(categoryCursor.getString(0));
-				}
-				while(categoryCursor.moveToNext());
-			}
-			categoryCursor.close(); //Closes the cursor to save space
-
 			//Initialising the different spinner-objects
 			Spinner fromYearSpinner = (Spinner) rootView.findViewById(R.id.from_year_spinner);
 			Spinner toYearSpinner = (Spinner) rootView.findViewById(R.id.to_year_spinner);
-			Spinner fromMonthSpinner = (Spinner) rootView.findViewById(R.id.from_month_spinner);
-			Spinner toMonthSpinner = (Spinner) rootView.findViewById(R.id.to_month_spinner);
-			Spinner fromDaySpinner = (Spinner) rootView.findViewById(R.id.from_day_spinner);
-			Spinner toDaySpinner = (Spinner) rootView.findViewById(R.id.to_day_spinner);
-			Spinner categorySpinner = (Spinner) rootView.findViewById(R.id.show_category_spinner);
+			Spinner fromStudyPeriodSpinner = (Spinner) rootView.findViewById(R.id.from_study_period_spinner);
+			Spinner toStudyPeriodSpinner = (Spinner) rootView.findViewById(R.id.to_study_period_spinner);
+			Spinner fromStudyWeekSpinner = (Spinner) rootView.findViewById(R.id.from_study_week_spinner);
+			Spinner toStudyWeekSpinner = (Spinner) rootView.findViewById(R.id.to_study_week_spinner);
 
 			// Create the different ArrayAdapters using the string array and a default spinner layout
 			ArrayAdapter<CharSequence> yearAdapter = ArrayAdapter.createFromResource(getActivity(),
 			        R.array.year_array, android.R.layout.simple_spinner_item);
-			ArrayAdapter<CharSequence> monthAdapter = ArrayAdapter.createFromResource(getActivity(),
-			        R.array.month_array, android.R.layout.simple_spinner_item);
-			ArrayAdapter<CharSequence> dayAdapter = ArrayAdapter.createFromResource(getActivity(),
-			        R.array.day_array, android.R.layout.simple_spinner_item);
-			ArrayAdapter<String> categoryAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, categoryNames);
+			ArrayAdapter<CharSequence> studyPeriodAdapter = ArrayAdapter.createFromResource(getActivity(),
+			        R.array.study_period_array, android.R.layout.simple_spinner_item);
+			ArrayAdapter<CharSequence> studyWeekAdapter = ArrayAdapter.createFromResource(getActivity(),
+			        R.array.study_week_array, android.R.layout.simple_spinner_item);
 
 			// Apply the adapters to the spinners
 			fromYearSpinner.setAdapter(yearAdapter);
-			fromMonthSpinner.setAdapter(monthAdapter);
-			fromDaySpinner.setAdapter(dayAdapter);
+			fromStudyPeriodSpinner.setAdapter(studyPeriodAdapter);
+			fromStudyWeekSpinner.setAdapter(studyWeekAdapter);
 			toYearSpinner.setAdapter(yearAdapter);
-			toMonthSpinner.setAdapter(monthAdapter);
-			toDaySpinner.setAdapter(dayAdapter);
-			categorySpinner.setAdapter(categoryAdapter);
-
+			toStudyPeriodSpinner.setAdapter(studyPeriodAdapter);
+			toStudyWeekSpinner.setAdapter(studyWeekAdapter);
 
 			return rootView;
 		}

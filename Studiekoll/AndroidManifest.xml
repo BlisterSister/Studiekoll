@@ -57,9 +57,9 @@
                 android:value="com.grupp8DAT255.studiekoll" />
         </activity>
         <activity
-            android:name="com.grupp8DAT255.studiekoll.DetailsActivity"
+            android:name="com.grupp8DAT255.studiekoll.DataManagementActivity"
             android:label="@string/title_activity_details" 
-            android:parentActivityName="com.grupp8DAT255.studiekoll.GraphActivity" >
+            android:parentActivityName="com.grupp8DAT255.studiekoll.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grupp8DAT255.studiekoll" />
