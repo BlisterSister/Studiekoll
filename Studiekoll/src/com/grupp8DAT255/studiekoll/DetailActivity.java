@@ -11,26 +11,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class DetailsActivity extends ActionBarActivity {
+public class DetailActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_details);
+		setContentView(R.layout.activity_detail);
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-		//Enables the up (back) button in the actionbar
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.details, menu);
+		getMenuInflater().inflate(R.menu.detail, menu);
 		return true;
 	}
 
@@ -57,7 +55,7 @@ public class DetailsActivity extends ActionBarActivity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_details,
+			View rootView = inflater.inflate(R.layout.fragment_detail,
 					container, false);
 			return rootView;
 		}

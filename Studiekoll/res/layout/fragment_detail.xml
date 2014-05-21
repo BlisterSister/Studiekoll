@@ -6,10 +6,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.grupp8DAT255.studiekoll.DetailsActivity$PlaceholderFragment" >
+    tools:context="com.grupp8DAT255.studiekoll.DetailActivity$PlaceholderFragment" >
 
-    <!-- HÄR GÅR ANDREAS DETALJERADE VY-KOD IN -->
-
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Here a splendid detailed view of the logged hours will magically emerge" />
 
 </RelativeLayout>

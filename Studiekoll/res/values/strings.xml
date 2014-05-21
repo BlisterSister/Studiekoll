@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Concerns the whole app -->
     <string name="app_name">Studiekoll</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Concerns MainActivity/fragment_main -->
     <string name="button_graphics">Graf</string>
     <string name="button_input">Inmatning</string>
     <string name="button_help">Hjälp</string>
+
+    <!-- Conserns HelpActivity/fragment_help -->
     <string name="title_activity_help">Hjälp</string>
-    <string name="help_text">
-        "Meny\n"
+    <string name="help_prompt">Behöver du hjälp?</string>
+    <string name="ok_button_text">OK!</string>
+    <string name="help_text">        "Meny\n"
         "Här väljer du mellan tre funktioner enligt nedan\n\n"
         
         "Graf\n"
@@ -25,27 +31,36 @@
         
         "Hjälp\n"
         "Här får du som du ser hjälp att hantera appen."</string>
+
+    <!-- Concerns GraphActivity/fragment_graph -->
     <string name="title_activity_graph">Loggade timmar</string>
     <string name="message">Här ser du dina studietimmar för vald period</string>
     <string name="from_prompt">Från</string>
     <string name="to_prompt">Till</string>
+    <string name="category_spinner_prompt">Välj kategori</string>
     <string name="show_button_text">Visa</string>
-    <string name="year_prompt">Välj år</string>
-    <string name="month_prompt">Välj månad</string>
-    <string name="day_prompt">Välj dag</string>
+    <string name="show_details_button_text">Detaljer</string>
+    <string name="category_prompt">Kategori</string>
+
+    <!-- Concerns InputActivity/fragment_input -->
     <string name="title_activity_input">Inmatning</string>
     <string name="input_message">Här för du in studietid och datum</string>
     <string name="send_input_button">Lagra inmatad data</string>
-    <string name="help_prompt">Behöver du hjälp?</string>
-    <string name="ok_button_text">OK!</string>
+
+    <!-- Concerns GraphActivity/fragment_graph AND InputActivity/fragment_input -->
+    <string name="year_prompt">Välj år</string>
+    <string name="month_prompt">Välj månad</string>
+    <string name="day_prompt">Välj dag</string>
+
+    <!-- Concerns CategoryActivity/fragment_category -->
     <string name="button_category">Kategorihantering</string>
     <string name="title_activity_category">Kategorihantering</string>
     <string name="category_help_message">Här skapar du nya kategorier</string>
     <string name="category_hint">Namnet på din nya kategori...</string>
     <string name="category_save_text">Spara kategori</string>
-    <string name="category_spinner_prompt">Välj kategori</string>
-    <string name="show_details_button_text">Detaljer</string>
-    <string name="title_activity_details">Detaljer</string>
-    <string name="category_prompt">Kategori</string>
+    
+    <!-- Concerns DetailActivity/fragment_category -->
+    <string name="title_activity_detail">Detaljer</string>
 
+    
 </resources>

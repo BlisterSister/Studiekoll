@@ -154,7 +154,7 @@
 	        	android:layout_height="fill_parent"
 	        	android:text="@string/show_details_button_text"
 	        	android:gravity="center_horizontal|center_vertical"
-	        	android:onClick="showDetails" />
+	        	android:onClick="createDetailActivity"/>
 
 		</LinearLayout> <!-- Button layout ends -->
 

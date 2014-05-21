@@ -31,7 +31,7 @@ public class GraphActivity extends ActionBarActivity {
 		db.execSQL("CREATE TABLE IF NOT EXISTS Studiekoll(id INTEGER PRIMARY KEY "
 				+ "AUTOINCREMENT, logTime DOUBLE, category VARCHAR, logDate VARCHAR);");
 		db.execSQL("CREATE TABLE IF NOT EXISTS Categories(category VARCHAR PRIMARY KEY)");
-
+		
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
@@ -120,9 +120,9 @@ public class GraphActivity extends ActionBarActivity {
 	 * Is called when show details button is clicked
 	 * @param view
 	 */
-	public void showDetails(View view){
-		Intent detailsIntent = new Intent(this, DetailsActivity.class);
-		startActivity(detailsIntent);
+	public void createDetailActivity(View view){
+		Intent detailIntent = new Intent(this, DetailActivity.class);
+		startActivity(detailIntent);
 	}
 
 	public static class PlaceholderFragment extends Fragment {
@@ -148,7 +148,7 @@ public class GraphActivity extends ActionBarActivity {
 				while(categoryCursor.moveToNext());
 			}
 			categoryCursor.close(); //Closes the cursor to save space
-
+			
 			//Initialising the different spinner-objects
 			Spinner fromYearSpinner = (Spinner) rootView.findViewById(R.id.from_year_spinner);
 			Spinner toYearSpinner = (Spinner) rootView.findViewById(R.id.to_year_spinner);
