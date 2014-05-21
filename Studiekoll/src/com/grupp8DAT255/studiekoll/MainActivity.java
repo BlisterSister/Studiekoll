@@ -82,7 +82,7 @@ public class MainActivity extends ActionBarActivity {
      * @param view
      */
     public void createDataManagementActivity(View view){
-    	Intent categoryIntent = new Intent(this, DataManagementActivity.class);
+    	Intent categoryIntent = new Intent(this, DataDeletionActivity.class);
     	startActivity(categoryIntent);
     }
     

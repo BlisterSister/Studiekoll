@@ -7,7 +7,7 @@
     <string name="button_input">Inmatning</string>
     <string name="button_help">Hjälp</string>
     <string name="title_activity_help">Hjälp</string>
-    <string name="help_text">
+    <string name="help_text">        
         "Meny\n"
         "Här väljer du mellan tre funktioner enligt nedan\n\n"
         
@@ -45,8 +45,17 @@
     <string name="category_save_text">Spara kategori</string>
     <string name="category_spinner_prompt">Välj kategori</string>
     <string name="show_details_button_text">Detaljer</string>
-    <string name="title_activity_details">Detaljer</string>
+    <string name="title_activity_data_management">Detaljer</string>
     <string name="category_prompt">Kategori</string>
     <string name="button_data_management">Datahantering</string>
-
+    <string name="title_activity_data_deletion">DataDeletionActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="entry_deletion_message">Här kan du radera en enskild inmatning, 
+        du kan välja bland de tio senaste.</string>
+	<string name="entry_deletion_button_text">Radera inmatningen</string>
+	<string name="entry_deletion_spinner_prompt">Välj inmatning att ta bort</string>
+	<string name="category_deletion_message">Här kan du radera alla inmatningar av en kategori, 
+	    inklusive själva kategorin.</string>
+    <string name="category_deletion_spinner_prompt">Välj kategori att ta bort</string>
+    <string name="category_deletion_button_text">Radera kategori</string>
 </resources>

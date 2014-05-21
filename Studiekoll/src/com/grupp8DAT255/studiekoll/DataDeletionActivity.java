@@ -11,26 +11,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class DataManagementActivity extends ActionBarActivity {
+public class DataDeletionActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_details);
+		setContentView(R.layout.activity_data_deletion);
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-		//Enables the up (back) button in the actionbar
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.details, menu);
+		getMenuInflater().inflate(R.menu.data_deletion, menu);
 		return true;
 	}
 
@@ -57,7 +55,7 @@ public class DataManagementActivity extends ActionBarActivity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_data_management,
+			View rootView = inflater.inflate(R.layout.fragment_data_deletion,
 					container, false);
 			return rootView;
 		}
