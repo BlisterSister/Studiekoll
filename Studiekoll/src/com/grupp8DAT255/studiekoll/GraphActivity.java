@@ -1,7 +1,6 @@
 package com.grupp8DAT255.studiekoll;
 
 import java.util.ArrayList;
-
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -32,7 +31,7 @@ public class GraphActivity extends ActionBarActivity {
 		db.execSQL("CREATE TABLE IF NOT EXISTS Studiekoll(id INTEGER PRIMARY KEY "
 				+ "AUTOINCREMENT, logTime DOUBLE, category VARCHAR, logDate VARCHAR);");
 		db.execSQL("CREATE TABLE IF NOT EXISTS Categories(category VARCHAR PRIMARY KEY)");
-		
+
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
@@ -84,6 +83,7 @@ public class GraphActivity extends ActionBarActivity {
 		//Formatting the dates for the database ("yyyy-mm-dd")
 		String fromDate = '"' + fromYear + "-" + fromMonth + "-" + fromDay + '"';
 		String toDate = '"' + toYear + "-" + toMonth + "-" + toDay + '"';
+
 		double totalHours = getStudyHours(fromDate, toDate);
 
 		//Formatting the text to show
@@ -109,7 +109,6 @@ public class GraphActivity extends ActionBarActivity {
 				}
 
 				totalTime = totalTime + cursor.getDouble(1);
-				System.out.println(cursor.getDouble(1)); //TESTING
 				i = i +1;  
 			}
 			cursor.close();	
@@ -176,6 +175,7 @@ public class GraphActivity extends ActionBarActivity {
 			toMonthSpinner.setAdapter(monthAdapter);
 			toDaySpinner.setAdapter(dayAdapter);
 			categorySpinner.setAdapter(categoryAdapter);
+
 
 			return rootView;
 		}

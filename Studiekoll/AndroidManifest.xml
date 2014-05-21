@@ -30,13 +30,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grupp8DAT255.studiekoll" />
         </activity>
-        <activity
+
+        <activity 
             android:name="com.grupp8DAT255.studiekoll.GraphActivity"
             android:label="@string/title_activity_graph"
             android:parentActivityName="com.grupp8DAT255.studiekoll.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grupp8DAT255.studiekoll" />
+            
         </activity>
         <activity
             android:name="com.grupp8DAT255.studiekoll.InputActivity"

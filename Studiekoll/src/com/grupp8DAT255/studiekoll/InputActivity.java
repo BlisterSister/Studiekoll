@@ -16,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.os.Build;
-
 import java.lang.Double;
 import java.util.ArrayList;
 
@@ -32,9 +31,6 @@ public class InputActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_input);
 
-		//Enables the up (back) button in the actionbar
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 		//Controls that the database exists, creates it otherwise
 		//as well with the main and category tables
 		db=openOrCreateDatabase("MyDB",MODE_PRIVATE, null); 
@@ -42,6 +38,8 @@ public class InputActivity extends ActionBarActivity {
 				+ "AUTOINCREMENT, logTime DOUBLE, category VARCHAR, logDate VARCHAR);");
 		db.execSQL("CREATE TABLE IF NOT EXISTS Categories(category VARCHAR PRIMARY KEY)");
 
+		//Enables the up (back) button in the actionbar
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
@@ -83,7 +81,7 @@ public class InputActivity extends ActionBarActivity {
 		double logMinute = timePicker.getCurrentMinute();
 
 		//Formatting the time for the database (hours)
-		double logTime = logHour + logMinute/60;
+		logTime = logHour + logMinute/60;
 
 		//Recovering the spinners
 		Spinner logYearSpinner = (Spinner) findViewById(R.id.log_year_spinner);
@@ -96,14 +94,10 @@ public class InputActivity extends ActionBarActivity {
 		String logDay = (String) logDaySpinner.getSelectedItem();
 
 		//Formatting the date for the database (yyyy-mm-dd)
-		String logDate = logYear + "-" + logMonth + "-" + logDay;
-
-		//TAGIT
+		logDate = logYear + "-" + logMonth + "-" + logDay;
 
 		//Recovering the category spinner
 		Spinner categorySpinner = (Spinner) findViewById(R.id.category_spinner);
-
-		//TAGIT
 
 		if(categorySpinner.getSelectedItem() != null) {
 			category = categorySpinner.getSelectedItem().toString();

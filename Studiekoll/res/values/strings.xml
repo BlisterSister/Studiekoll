@@ -3,12 +3,12 @@
 
     <string name="app_name">Studiekoll</string>
     <string name="action_settings">Settings</string>
-    <string name="edit_message">Insert number of hours</string>
     <string name="button_graphics">Graf</string>
     <string name="button_input">Inmatning</string>
     <string name="button_help">Hjälp</string>
     <string name="title_activity_help">Hjälp</string>
-    <string name="help_text">        "Meny\n"
+    <string name="help_text">
+        "Meny\n"
         "Här väljer du mellan tre funktioner enligt nedan\n\n"
         
         "Graf\n"
