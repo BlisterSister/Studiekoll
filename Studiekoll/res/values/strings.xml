@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Studiekoll</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_graphics">Graf</string>
+    <string name="button_input">Inmatning</string>
+    <string name="button_help">Hjälp</string>    
+    <string name="title_activity_help">Hjälp</string>
+    <string name="help_text"> 
+        "Meny\n"
+        "Här väljer du mellan tre funktioner enligt nedan\n\n"
+        
+        "Graf\n"
+        "I denna vy kan du se dina studietimmar för vald period."
+        "Använd dig av drop-down menyerna för att ställa in under"
+        "vilken period du vill se studietimmarna redovisas."
+        "Tryck sedan på "visa"-knappen för att visa antalet studietimmar.\n\n" 
+        
+        "Inmatning\n"
+        "Här matar du in den tid du lagt ned på dina studier. Du väljer" 
+        "timmar och minuter i snurran och datum med hjälp av drop-down"
+        "menyerna. Tryck sedan på "lagra"-knappen för att spara inmatningen."
+        "Det är möjligt att föra in tid flera gånger för samma datum.\n\n"
+        
+        "Hjälp\n"
+        "Här får du som du ser hjälp att hantera appen."</string>
+
+    <string name="title_activity_graph">Loggade timmar</string>
+    <string name="message">Här ser du dina studietimmar för vald period</string>
+    <string name="from_prompt">Från</string>
+    <string name="to_prompt">Till</string>
+    <string name="show_button_text">Visa</string>
+    <string name="year_prompt">Välj år</string>
+    <string name="month_prompt">Välj månad</string>
+    <string name="day_prompt">Välj dag</string>    
+    <string name="title_activity_input">Inmatning</string>
+    <string name="input_message">Här för du in studietid och datum</string>
+	<string name="send_input_button">Lagra inmatad data</string>
+	<string name="help_prompt">Behöver du hjälp?</string>
+	<string name="ok_button_text">OK!</string>
+</resources>
