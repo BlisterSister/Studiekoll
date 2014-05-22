@@ -48,7 +48,7 @@
     <string name="title_activity_data_management">Detaljer</string>
     <string name="category_prompt">Kategori</string>
     <string name="button_data_management">Datahantering</string>
-    <string name="title_activity_data_deletion">DataDeletionActivity</string>
+    <string name="title_activity_data_deletion">Datahantering</string>
     <string name="hello_world">Hello world!</string>
     <string name="entry_deletion_message">Här kan du radera en enskild inmatning, 
         du kan välja bland de tio senaste.</string>

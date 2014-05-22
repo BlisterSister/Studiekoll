@@ -30,7 +30,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/entry_deletion_spinner"
-        android:text="@string/entry_deletion_button_text" />
+        android:layout_centerHorizontal="true"
+        android:text="@string/entry_deletion_button_text"
+        android:onClick="deleteEntry" />
     
     <TextView
         android:id="@+id/category_deletion_text_view"
@@ -54,7 +56,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/category_deletion_button_text" />
+        android:layout_centerHorizontal="true"
+        android:text="@string/category_deletion_button_text" 
+        android:onClick="deleteCategory" />
 
 </RelativeLayout>
