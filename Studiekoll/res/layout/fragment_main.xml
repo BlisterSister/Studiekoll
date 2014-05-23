@@ -10,18 +10,18 @@
     tools:context="com.grupp8DAT255.studiekoll.MainActivity$PlaceholderFragment" >
 
 	<Button
-	    android:id="@+id/graphics_button"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:text="@string/button_graphics"
-	    android:onClick="createGraphActivity" />
-
-	<Button
 	    android:id="@+id/input_button"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:text="@string/button_input"
 	    android:onClick="createInputActivity" />
+  
+	<Button
+	    android:id="@+id/graphics_button"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text="@string/button_graphics"
+	    android:onClick="createGraphActivity" />
 
 	<Button 
 	    android:id="@+id/category_button"
@@ -31,17 +31,22 @@
 	    android:onClick="createCategoryActivity" />
 
 	<Button
-	    android:id="@+id/help_button"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:text="@string/button_help"
-	    android:onClick="createHelpActivity" />
-	
-	<Button
 	    android:id="@+id/data_management_button"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:text="@string/button_data_management"
 	    android:onClick="createDataManagementActivity" />
+
+	<Button
+	    android:id="@+id/help_button"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text="@string/button_help"
+	    android:onClick="createHelpActivity" />
+		
+	<ImageView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:src="@drawable/logga" />
 
 </LinearLayout>

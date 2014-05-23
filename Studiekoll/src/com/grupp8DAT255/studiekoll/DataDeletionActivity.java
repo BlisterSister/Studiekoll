@@ -1,5 +1,6 @@
 package com.grupp8DAT255.studiekoll;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import android.support.v7.app.ActionBarActivity;
@@ -97,10 +98,14 @@ public class DataDeletionActivity extends ActionBarActivity {
 			
 			if (entryCursor.moveToLast()){
 				do{
-					entryForDeletion = entryCursor.getString(3) + " " 
-							+ entryCursor.getString(2) + " " + entryCursor.getString(1);
+					double studyHours = entryCursor.getDouble(1); 
+					DecimalFormat df = new DecimalFormat("#.#"); 
+					String twoDigitNumStudyHours = df.format(studyHours);
+					
+					entryForDeletion = entryCursor.getString(0) + "| " + entryCursor.getString(3) + " | " 
+							+ entryCursor.getString(2) + " | " + twoDigitNumStudyHours + "h";
 					entryArray.add(entryForDeletion);
-					counter++;
+					counter++;							
 				}
 				while(entryCursor.moveToPrevious() && counter < 10);
 			}
@@ -162,8 +167,8 @@ public class DataDeletionActivity extends ActionBarActivity {
 			
 			//Recovering the selected category
 			String categoryForDeletion = categoryDeletionSpinner.getSelectedItem().toString();
-			
-			//RADERA DENNA KATEGORI I DATABASTABELLEN STUDIEKOLL OCH CATEGORIES!!!
+			//db.execSQL("DELETE FROM Categories WHERE category=" + "'" + categoryForDeletion + "'", null);
+			//db.execSQL("DELETE FROM Studiekoll WHERE category=" + "'" + categoryForDeletion + "'", null);
 			
 			//Returns the user to the main menu
 			Intent returnToMainIntent = new Intent(this, MainActivity.class);

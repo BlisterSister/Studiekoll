@@ -3,7 +3,7 @@
 
     <string name="app_name">Studiekoll</string>
     <string name="action_settings">Settings</string>
-    <string name="button_graphics">Graf</string>
+    <string name="button_graphics">Mina timmar</string>
     <string name="button_input">Inmatning</string>
     <string name="button_help">Hjälp</string>
     <string name="title_activity_help">Hjälp</string>

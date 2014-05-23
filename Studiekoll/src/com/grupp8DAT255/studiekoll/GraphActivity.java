@@ -1,6 +1,8 @@
 package com.grupp8DAT255.studiekoll;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -80,41 +82,37 @@ public class GraphActivity extends ActionBarActivity {
 		String toMonth = (String) toStudyPeriodSpinner.getSelectedItem();
 		String toDay = (String) toStudyWeekSpinner.getSelectedItem();
 
-		//Formatting the dates for the database ("yyyy-mm-dd")
+		//Formatting the dates for the database ("yyyy-LPX-LVX")
 		String fromDate = '"' + fromYear + "-" + fromMonth + "-" + fromDay + '"';
 		String toDate = '"' + toYear + "-" + toMonth + "-" + toDay + '"';
 
 		double totalHours = getStudyHours(fromDate, toDate);
 
-		//Formatting the text to show
-		//VI BEHÖVER FORMATTERA TEXTEN SOM SKA VISAS I TEXTVIEWN!!!
-
+		//Formatting the text to show 
+		DecimalFormat df = new DecimalFormat("#.#"); 
+		String studyHours = df.format(totalHours);
+		
 		//Showing the hours on the screen
 		TextView hourView = (TextView) findViewById(R.id.invested_hours_text_view);
-		hourView.setText(totalHours + "h");
+		hourView.setText(studyHours + "h");
 	}
 
 	public double getStudyHours(String fromDate, String toDate) {
 
 			double totalTime = 0;
-			int i = 0;
-
 			Cursor cursor = db.rawQuery("SELECT * FROM Studiekoll WHERE "
 				+ "logDate BETWEEN " + fromDate + " AND " + toDate , null);
 
-			while (cursor.moveToNext()) {
-
-				if (i == 0){
-					cursor.moveToFirst();	//Fult, men för att få med första värdet så krävs detta		
-				}
-
-				totalTime = totalTime + cursor.getDouble(1);
-				i = i +1;  
+			if(cursor.moveToFirst()){	
+				do{
+					totalTime = totalTime + cursor.getDouble(1);
+				}while(cursor.moveToNext());
 			}
-			cursor.close();	
+			cursor.close();
+			
 			return totalTime; 
-
-		}
+	}
+	
 
 	public static class PlaceholderFragment extends Fragment {
 
