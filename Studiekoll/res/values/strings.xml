@@ -58,4 +58,7 @@
 	    inklusive själva kategorin.</string>
     <string name="category_deletion_spinner_prompt">Välj kategori att ta bort</string>
     <string name="category_deletion_button_text">Radera kategori</string>
+    
+    <string name="title_total_hours_text">Timmar</string>
+    <string name="title_catagory_text">Kategori</string>
 </resources>

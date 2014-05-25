@@ -2,6 +2,7 @@ package com.grupp8DAT255.studiekoll;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -22,6 +23,8 @@ import android.os.Build;
 public class DataDeletionActivity extends ActionBarActivity {
 
 	static SQLiteDatabase db;
+	private static final String DATABASE_TABLE_MAIN = "Studiekoll";
+	private static final String DATABASE_TABLE_CATEGORY = "Categories";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +105,7 @@ public class DataDeletionActivity extends ActionBarActivity {
 					DecimalFormat df = new DecimalFormat("#.#"); 
 					String twoDigitNumStudyHours = df.format(studyHours);
 					
-					entryForDeletion = entryCursor.getString(0) + "| " + entryCursor.getString(3) + " | " 
+					entryForDeletion = entryCursor.getString(0) + " | " + entryCursor.getString(3) + " | " 
 							+ entryCursor.getString(2) + " | " + twoDigitNumStudyHours + "h";
 					entryArray.add(entryForDeletion);
 					counter++;							
@@ -143,7 +146,14 @@ public class DataDeletionActivity extends ActionBarActivity {
 			//Recovering the selected entry
 			String entryForDeletion = entryDeletionSpinner.getSelectedItem().toString();
 			
-			//RADERA DENNA INMATNING I DATABASTABELLEN STUDIEKOLL!!!
+			Scanner scannerId = new Scanner(entryForDeletion);
+			String id = "";
+			
+			if (scannerId.hasNextInt()){
+				id = scannerId.next();	
+			}
+			 
+			db.delete(DATABASE_TABLE_MAIN, "id = " + id, null);
 			
 			//Returns the user to the main menu
 			Intent returnToMainIntent = new Intent(this, MainActivity.class);
@@ -167,9 +177,11 @@ public class DataDeletionActivity extends ActionBarActivity {
 			
 			//Recovering the selected category
 			String categoryForDeletion = categoryDeletionSpinner.getSelectedItem().toString();
-			//db.execSQL("DELETE FROM Categories WHERE category=" + "'" + categoryForDeletion + "'", null);
-			//db.execSQL("DELETE FROM Studiekoll WHERE category=" + "'" + categoryForDeletion + "'", null);
 			
+			//Erasing the selected category in both tables
+			db.delete(DATABASE_TABLE_MAIN, "category = " + '"' + categoryForDeletion + '"', null);
+			db.delete(DATABASE_TABLE_CATEGORY, "category = " + '"' + categoryForDeletion + '"', null);
+						
 			//Returns the user to the main menu
 			Intent returnToMainIntent = new Intent(this, MainActivity.class);
 			startActivity(returnToMainIntent);

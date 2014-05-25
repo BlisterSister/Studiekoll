@@ -18,17 +18,73 @@
         android:textStyle="bold" />
 
     <!-- HÄR SKA TIMMAR FRÅN DATABAS LÄGGAS IN SOM VISAD TEXT -->
+	
+	<ScrollView 
+		android:layout_width="fill_parent"
+    	android:layout_height="0dp"
+        android:layout_weight="4" >
 
-    <TextView
-        android:id="@+id/invested_hours_text_view"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6"
-        android:gravity="center_horizontal|center_vertical"
-        android:lines="1"
-        android:text=""
-        android:textSize="90sp" />
+	    
+	    
+		<TableLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent" >
 
+			<TableRow
+			    android:id="@+id/tableRow5"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content" >
+		  	    
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:text="@string/title_catagory_text"
+				    android:textStyle="bold"
+					android:layout_weight="1" />
+							    
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:text="@string/title_total_hours_text"
+				    android:textStyle="bold"
+					android:layout_weight="1" />
+				
+				
+				
+			</TableRow>
+		
+	<TableRow
+			    android:id="@+id/tableRow6"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content" >
+	
+	    
+	    <TextView
+	        		android:id="@+id/dbCatagoryInfo"
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:text=""
+					android:layout_weight="1" />
+				
+	    
+	    <TextView
+	        		android:id="@+id/dbHoursInfo"
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:text=""
+					android:layout_weight="1" />
+				
+	    
+	    
+	</TableRow>		
+					
+		</TableLayout>
+		
+			
+		    
+    </ScrollView>
+    
+    
     <!-- Bottom control layout -->
     <LinearLayout 
         android:layout_width="wrap_content"

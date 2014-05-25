@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +19,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.os.Build;
 
@@ -86,17 +90,50 @@ public class GraphActivity extends ActionBarActivity {
 		String fromDate = '"' + fromYear + "-" + fromMonth + "-" + fromDay + '"';
 		String toDate = '"' + toYear + "-" + toMonth + "-" + toDay + '"';
 
-		double totalHours = getStudyHours(fromDate, toDate);
-
-		//Formatting the text to show 
-		DecimalFormat df = new DecimalFormat("#.#"); 
-		String studyHours = df.format(totalHours);
-		
 		//Showing the hours on the screen
-		TextView hourView = (TextView) findViewById(R.id.invested_hours_text_view);
-		hourView.setText(studyHours + "h");
+	
+		Cursor c = db.rawQuery("SELECT category, SUM(logtime) FROM Studiekoll WHERE logDate BETWEEN " + fromDate + " AND " + toDate + " GROUP BY category ORDER BY category; ", null);
+		
+		c.moveToFirst();
+		
+		String categoryInfo = "";
+		String sumHours = "";
+				
+		if (c.moveToFirst()){
+			do{ 
+				
+				categoryInfo = categoryInfo + c.getString(0) + "\n";
+				double hour = c.getDouble(1);
+				DecimalFormat df = new DecimalFormat("#.#"); 
+				String twoDigitNumStudyHours = df.format(hour);
+				
+				sumHours = sumHours + twoDigitNumStudyHours + "h" +  "\n";  
+					}
+			while(c.moveToNext());
+		}
+		c.close(); //Closes the cursor
+		
+			
+		//Send hours and category to view 
+		TextView infoCategory = (TextView) findViewById(R.id.dbCatagoryInfo);
+		TextView infoHours = (TextView) findViewById(R.id.dbHoursInfo);		
+					
+		infoCategory.setText(categoryInfo);
+		infoHours.setText(sumHours);
+		
 	}
+			
+	
+	
+	
+	
+	
+	
+	
+	
+	//NOT IN USE	
 
+/**  
 	public double getStudyHours(String fromDate, String toDate) {
 
 			double totalTime = 0;
@@ -112,7 +149,7 @@ public class GraphActivity extends ActionBarActivity {
 			
 			return totalTime; 
 	}
-	
+	**/
 
 	public static class PlaceholderFragment extends Fragment {
 
