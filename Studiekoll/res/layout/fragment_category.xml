@@ -10,24 +10,35 @@
     tools:context="com.grupp8DAT255.studiekoll.CategoryActivity$PlaceholderFragment" >
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/category_help_message"
-        android:textStyle="bold" 
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-    
-    <EditText
-        android:id="@+id/category_edit_text"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/category_hint"
-        android:maxLines="1"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/category_help_message" 
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" 
+        android:gravity="center_horizontal"/>
     
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/category_save_text"
-        android:onClick="saveCategory" />"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
+        
+		<EditText
+        	android:id="@+id/category_edit_text"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:hint="@string/category_hint"
+        	android:maxLines="1"/>
+    
+    	<Button
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="center_horizontal"
+        	android:text="@string/category_save_text"
+        	android:onClick="saveCategory" />        
+    
+    </LinearLayout>
+    
 
 </LinearLayout>

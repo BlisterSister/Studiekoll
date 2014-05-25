@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Concerns the whole app -->
     <string name="app_name">Studiekoll</string>
     <string name="action_settings">Settings</string>
-    <string name="button_graphics">Mina timmar</string>
+    
+    <!-- Concerns MainActivity/fragment_main -->
     <string name="button_input">Inmatning</string>
+    <string name="button_graphics">Mina timmar</string>
     <string name="button_help">Hjälp</string>
+    <string name="button_category">Ny kategori</string>
+    <string name="button_data_management">Datahantering</string>
+    
+    <!-- Concerns HelpActivity/fragment_help -->
     <string name="title_activity_help">Hjälp</string>
     <string name="help_text">        
         "Meny\n"
-        "Här väljer du mellan tre funktioner enligt nedan\n\n"
-        
-        "Graf\n"
-        "I denna vy kan du se dina studietimmar för vald period."
-        "Använd dig av drop-down menyerna för att ställa in under"
-        "vilken period du vill se studietimmarna redovisas."
-        "Tryck sedan på "visa"-knappen för att visa antalet studietimmar.\n\n" 
+        "Här väljer du mellan fem funktioner enligt nedan\n\n"
         
         "Inmatning\n"
         "Här matar du in den tid du lagt ned på dina studier. Du väljer" 
@@ -23,33 +24,54 @@
         "menyerna. Tryck sedan på "lagra"-knappen för att spara inmatningen."
         "Det är möjligt att föra in tid flera gånger för samma datum.\n\n"
         
+        "Mina timmar\n"
+        "I denna vy kan du se dina studietimmar för vald period."
+        "Använd dig av drop-down menyerna för att ställa in under"
+        "vilken period du vill se studietimmarna redovisas."
+        "Tryck sedan på "visa"-knappen för att visa antalet studietimmar.\n\n" 
+        
+        "Ny kategori\n"
+        "I denna vy kan du skapa nya kategorier för att tydligare kartlägga"
+        "dina studier.\n\n"
+        
+        "Datahantering\n"
+        "I denna vy kan du radera de tio senaste inmatningarna var för sig."
+        "Du kan också radera alla inmatningar för en specifik kategori, då"
+        "raderas även själva kategorin. Det går INTE att ångra sig!\n\n"
+        
         "Hjälp\n"
         "Här får du som du ser hjälp att hantera appen."</string>
+    <string name="help_prompt">Behöver du hjälp?</string>
+    <string name="ok_button_text">OK!</string>
+    
+    <!-- Concerns GraphActivity/fragment_graph -->
     <string name="title_activity_graph">Loggade timmar</string>
     <string name="message">Här ser du dina studietimmar för vald period</string>
     <string name="from_prompt">Från</string>
     <string name="to_prompt">Till</string>
     <string name="show_button_text">Visa</string>
+	<string name="title_total_hours_text">Timmar</string>
+    <string name="title_category_text">Kategori</string>
+    
+    <!-- Concerns GraphActivity/fragment_grapgh AND InputActivity/fragment_input -->
     <string name="year_prompt">Välj år</string>
     <string name="study_period_prompt">Välj läsperiod</string>
     <string name="study_week_prompt">Välj läsvecka</string>
+    
+    <!-- Concerns InputActvity/fragment_input -->
     <string name="title_activity_input">Inmatning</string>
     <string name="input_message">Här för du in studietid och tillfälle</string>
     <string name="send_input_button">Lagra inmatad data</string>
-    <string name="help_prompt">Behöver du hjälp?</string>
-    <string name="ok_button_text">OK!</string>
-    <string name="button_category">Kategorihantering</string>
-    <string name="title_activity_category">Kategorihantering</string>
+    <string name="category_spinner_prompt">Välj kategori</string>
+    
+    <!-- Concerns CategoryActivity/fragment_category -->
+    <string name="title_activity_category">Ny kategori</string>
     <string name="category_help_message">Här skapar du nya kategorier</string>
     <string name="category_hint">Namnet på din nya kategori...</string>
     <string name="category_save_text">Spara kategori</string>
-    <string name="category_spinner_prompt">Välj kategori</string>
-    <string name="show_details_button_text">Detaljer</string>
-    <string name="title_activity_data_management">Detaljer</string>
-    <string name="category_prompt">Kategori</string>
-    <string name="button_data_management">Datahantering</string>
+    
+    <!-- Concerns DataDeletionActivity/fragment_data_deletion -->
     <string name="title_activity_data_deletion">Datahantering</string>
-    <string name="hello_world">Hello world!</string>
     <string name="entry_deletion_message">Här kan du radera en enskild inmatning, 
         du kan välja bland de tio senaste.</string>
 	<string name="entry_deletion_button_text">Radera inmatningen</string>
@@ -59,6 +81,4 @@
     <string name="category_deletion_spinner_prompt">Välj kategori att ta bort</string>
     <string name="category_deletion_button_text">Radera kategori</string>
     
-    <string name="title_total_hours_text">Timmar</string>
-    <string name="title_catagory_text">Kategori</string>
 </resources>

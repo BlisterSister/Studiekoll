@@ -16,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.os.Build;
-import java.lang.Double;
 import java.util.ArrayList;
 
 public class InputActivity extends ActionBarActivity {
@@ -24,7 +23,7 @@ public class InputActivity extends ActionBarActivity {
 	double id, logTime;
 	String logDate;
 	String category = ""; //An empty default category
-	static SQLiteDatabase db; //Don't know why static though....
+	static SQLiteDatabase db;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +37,13 @@ public class InputActivity extends ActionBarActivity {
 				+ "AUTOINCREMENT, logTime DOUBLE, category VARCHAR, logDate VARCHAR);");
 		db.execSQL("CREATE TABLE IF NOT EXISTS Categories(category VARCHAR PRIMARY KEY)");
 
-		//Enables the up (back) button in the actionbar
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+		
+		//Enables the up (back) button in the action bar
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
@@ -90,11 +89,11 @@ public class InputActivity extends ActionBarActivity {
 
 		//Getting selected values from spinners
 		String logYear = (String) logYearSpinner.getSelectedItem();
-		String logMonth = (String) logStudyPeriodSpinner.getSelectedItem();
-		String logDay = (String) logStudyWeekSpinner.getSelectedItem();
+		String logStudyPeriod = (String) logStudyPeriodSpinner.getSelectedItem();
+		String logStudyWeek = (String) logStudyWeekSpinner.getSelectedItem();
 
 		//Formatting the date for the database (yyyy-mm-dd)
-		logDate = logYear + "-" + logMonth + "-" + logDay;
+		logDate = logYear + "-" + logStudyPeriod + "-" + logStudyWeek;
 
 		//Recovering the category spinner
 		Spinner categorySpinner = (Spinner) findViewById(R.id.category_spinner);
@@ -105,8 +104,9 @@ public class InputActivity extends ActionBarActivity {
 
 		db.execSQL("INSERT INTO Studiekoll VALUES ("+ null +","+logTime+", '"+category+"','"+logDate+"');");
 
-		Intent inputIntent = new Intent(this, MainActivity.class);
-		startActivity(inputIntent);
+		//Sends the user back to main menu
+		Intent backToMainIntent = new Intent(this, MainActivity.class);
+		startActivity(backToMainIntent);
 	}
 
 	/**
@@ -123,9 +123,11 @@ public class InputActivity extends ActionBarActivity {
 			View rootView = inflater.inflate(R.layout.fragment_input,
 					container, false);
 
-			//Setting the timepicker to be in 24h-mode
+			//Setting the time picker to be in 24h-mode and to show zero hours and minutes from start
 			TimePicker timePicker = (TimePicker) rootView.findViewById(R.id.time_picker);
 			timePicker.setIs24HourView(true);
+			timePicker.setCurrentHour(0);
+			timePicker.setCurrentMinute(0);
 
 			//Initialising the different spinner-objects
 			Spinner logYearSpinner = (Spinner) rootView.findViewById(R.id.log_year_spinner);
@@ -149,6 +151,7 @@ public class InputActivity extends ActionBarActivity {
 			ArrayList<String> categoryNames = new ArrayList<String>(0);
 			Cursor categoryCursor = db.rawQuery("SELECT * FROM Categories", null);
 
+			//If the category table has elements, add them to the array
 			if (categoryCursor.moveToFirst()){
 				do{
 					categoryNames.add(categoryCursor.getString(0));

@@ -17,7 +17,7 @@
         android:text="@string/help_prompt"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:gravity="center_vertical|center_vertical" />
+        android:layout_gravity="center_horizontal" />
 
     <ScrollView 
         android:layout_width="fill_parent"

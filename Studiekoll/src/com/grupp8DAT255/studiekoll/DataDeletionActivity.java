@@ -43,7 +43,7 @@ public class DataDeletionActivity extends ActionBarActivity {
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 		
-		//Enables the up (back) button in the actionbar
+		//Enables the up (back) button in the action bar
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
@@ -85,6 +85,7 @@ public class DataDeletionActivity extends ActionBarActivity {
 			ArrayList<String> categoryArray = new ArrayList<String>(0);
 			Cursor categoryCursor = db.rawQuery("SELECT * FROM Categories", null);
 
+			//If the Category table have entries, add them to the categoryArray
 			if (categoryCursor.moveToFirst()){
 				do{
 					categoryArray.add(categoryCursor.getString(0));
@@ -97,14 +98,17 @@ public class DataDeletionActivity extends ActionBarActivity {
 			ArrayList<String> entryArray = new ArrayList<String>(0);
 			Cursor entryCursor = db.rawQuery("SELECT * FROM Studiekoll", null);
 			String entryForDeletion = "";
-			int counter = 0; //Asserts that only the ten last entries are shown
+			int counter = 0; //Asserts that (at the most) only the ten last entries are shown
 			
+			//Selects the ten last entries into the main database table
 			if (entryCursor.moveToLast()){
 				do{
+					//Gets and formats the entry to two decimals
 					double studyHours = entryCursor.getDouble(1); 
 					DecimalFormat df = new DecimalFormat("#.#"); 
 					String twoDigitNumStudyHours = df.format(studyHours);
 					
+					//Formats the text to be shown in the spinner (id|date|category|hours)
 					entryForDeletion = entryCursor.getString(0) + " | " + entryCursor.getString(3) + " | " 
 							+ entryCursor.getString(2) + " | " + twoDigitNumStudyHours + "h";
 					entryArray.add(entryForDeletion);
@@ -146,20 +150,16 @@ public class DataDeletionActivity extends ActionBarActivity {
 			//Recovering the selected entry
 			String entryForDeletion = entryDeletionSpinner.getSelectedItem().toString();
 			
+			//Gets the id of the selected entry
 			Scanner scannerId = new Scanner(entryForDeletion);
-			String id = "";
-			
-			if (scannerId.hasNextInt()){
-				id = scannerId.next();	
-			}
-			 
+			String id = scannerId.next();	
+			scannerId.close(); //Closes the scanner
 			db.delete(DATABASE_TABLE_MAIN, "id = " + id, null);
 			
 			//Returns the user to the main menu
 			Intent returnToMainIntent = new Intent(this, MainActivity.class);
 			startActivity(returnToMainIntent);
 		}
-		
 	}
 	
 	/**
@@ -186,6 +186,5 @@ public class DataDeletionActivity extends ActionBarActivity {
 			Intent returnToMainIntent = new Intent(this, MainActivity.class);
 			startActivity(returnToMainIntent);
 		}
-
 	}
 }

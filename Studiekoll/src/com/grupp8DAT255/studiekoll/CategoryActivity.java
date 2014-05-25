@@ -4,7 +4,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,13 +26,11 @@ public class CategoryActivity extends ActionBarActivity {
 		db = openOrCreateDatabase("MyDB", MODE_PRIVATE, null);
 		db.execSQL("CREATE TABLE IF NOT EXISTS Categories(category VARCHAR PRIMARY KEY)");
 
-		//To be used in future development concerning removing and updating categories
-		//db.execSQL("CREATE TABLE IF NOT EXISTS Studiekoll(id INTEGER PRIMARY KEY AUTOINCREMENT, logTime DOUBLE, category VARCHAR, logDate VARCHAR);");
-
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+		
 		//Enables the up (back) button in the actionbar
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}

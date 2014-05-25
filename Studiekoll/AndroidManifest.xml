@@ -13,15 +13,16 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
             android:name="com.grupp8DAT255.studiekoll.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name="com.grupp8DAT255.studiekoll.HelpActivity"
             android:label="@string/title_activity_help"
@@ -30,6 +31,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grupp8DAT255.studiekoll" />
         </activity>
+        
         <activity
             android:name="com.grupp8DAT255.studiekoll.GraphActivity"
             android:label="@string/title_activity_graph"
@@ -38,6 +40,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grupp8DAT255.studiekoll" />
         </activity>
+        
         <activity
             android:name="com.grupp8DAT255.studiekoll.InputActivity"
             android:label="@string/title_activity_input"
@@ -46,6 +49,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grupp8DAT255.studiekoll" />
         </activity>
+        
         <activity
             android:name="com.grupp8DAT255.studiekoll.CategoryActivity"
             android:label="@string/title_activity_category"
@@ -54,6 +58,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grupp8DAT255.studiekoll" />
         </activity>
+        
         <activity
             android:name="com.grupp8DAT255.studiekoll.DataDeletionActivity"
             android:label="@string/title_activity_data_deletion" 
@@ -61,7 +66,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grupp8DAT255.studiekoll" />
-        </activity>>
+        </activity>
+        
     </application>
 
 </manifest>

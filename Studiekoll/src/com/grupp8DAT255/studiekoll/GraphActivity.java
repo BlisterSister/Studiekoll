@@ -1,16 +1,12 @@
 package com.grupp8DAT255.studiekoll;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,8 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.os.Build;
 
@@ -33,6 +27,8 @@ public class GraphActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_graph);
 
+		//Controls that the database exists, creates it otherwise
+		//as well with the main and category tables
 		db=openOrCreateDatabase("MyDB",MODE_PRIVATE, null); 
 		db.execSQL("CREATE TABLE IF NOT EXISTS Studiekoll(id INTEGER PRIMARY KEY "
 				+ "AUTOINCREMENT, logTime DOUBLE, category VARCHAR, logDate VARCHAR);");
@@ -42,7 +38,8 @@ public class GraphActivity extends ActionBarActivity {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-		//Enables the up (back) button in the actionbar
+		
+		//Enables the up (back) button in the action bar
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
@@ -80,76 +77,63 @@ public class GraphActivity extends ActionBarActivity {
 
 		//Getting the selected value from the spinners
 		String fromYear = (String) fromYearSpinner.getSelectedItem() ;
-		String fromMonth = (String) fromStudyPeriodSpinner.getSelectedItem();
-		String fromDay = (String) fromStudyWeekSpinner.getSelectedItem();
+		String fromStudyPeriod = (String) fromStudyPeriodSpinner.getSelectedItem();
+		String fromStudyWeek = (String) fromStudyWeekSpinner.getSelectedItem();
 		String toYear = (String) toYearSpinner.getSelectedItem();
-		String toMonth = (String) toStudyPeriodSpinner.getSelectedItem();
-		String toDay = (String) toStudyWeekSpinner.getSelectedItem();
+		String toStudyPeriod = (String) toStudyPeriodSpinner.getSelectedItem();
+		String toStudyWeek = (String) toStudyWeekSpinner.getSelectedItem();
 
-		//Formatting the dates for the database ("yyyy-LPX-LVX")
-		String fromDate = '"' + fromYear + "-" + fromMonth + "-" + fromDay + '"';
-		String toDate = '"' + toYear + "-" + toMonth + "-" + toDay + '"';
+		//Formatting the dates for the database query ("yyyy-LPX-LVX")
+		String fromDate = '"' + fromYear + "-" + fromStudyPeriod + "-" + fromStudyWeek + '"';
+		String toDate = '"' + toYear + "-" + toStudyPeriod + "-" + toStudyWeek + '"';
 
-		//Showing the hours on the screen
-	
-		Cursor c = db.rawQuery("SELECT category, SUM(logtime) FROM Studiekoll WHERE logDate BETWEEN " + fromDate + " AND " + toDate + " GROUP BY category ORDER BY category; ", null);
-		
-		c.moveToFirst();
+		//Getting the information to show from the database
+		Cursor c = db.rawQuery("SELECT category, SUM(logtime) FROM Studiekoll WHERE logDate BETWEEN " 
+		+ fromDate + " AND " + toDate + " GROUP BY category ORDER BY category; ", null);
 		
 		String categoryInfo = "";
 		String sumHours = "";
-				
+		double hour = 0;
+		
+		//Summing up the hours and formatting the text to show (category and study hours with two decimals)
 		if (c.moveToFirst()){
 			do{ 
-				
 				categoryInfo = categoryInfo + c.getString(0) + "\n";
-				double hour = c.getDouble(1);
+				hour = c.getDouble(1);
 				DecimalFormat df = new DecimalFormat("#.#"); 
 				String twoDigitNumStudyHours = df.format(hour);
-				
-				sumHours = sumHours + twoDigitNumStudyHours + "h" +  "\n";  
-					}
-			while(c.moveToNext());
+				sumHours = sumHours + twoDigitNumStudyHours + "h" + "\n";  
+			} while(c.moveToNext());
 		}
 		c.close(); //Closes the cursor
 		
-			
 		//Send hours and category to view 
-		TextView infoCategory = (TextView) findViewById(R.id.dbCatagoryInfo);
-		TextView infoHours = (TextView) findViewById(R.id.dbHoursInfo);		
+		TextView categoryInfoTextView = (TextView) findViewById(R.id.db_category_info);
+		TextView hoursInfoTextView = (TextView) findViewById(R.id.db_hours_info);		
 					
-		infoCategory.setText(categoryInfo);
-		infoHours.setText(sumHours);
+		categoryInfoTextView.setText(categoryInfo);
+		hoursInfoTextView.setText(sumHours);
 		
 	}
 			
-	
-	
-	
-	
-	
-	
-	
-	
-	//NOT IN USE	
-
-/**  
+	//NOT IN USE IN THIS VERSION, SAVED FOR LATER DEVELOPMENT
+	/*  
 	public double getStudyHours(String fromDate, String toDate) {
 
-			double totalTime = 0;
-			Cursor cursor = db.rawQuery("SELECT * FROM Studiekoll WHERE "
-				+ "logDate BETWEEN " + fromDate + " AND " + toDate , null);
+		double totalTime = 0;
+		Cursor cursor = db.rawQuery("SELECT * FROM Studiekoll WHERE "
+			+ "logDate BETWEEN " + fromDate + " AND " + toDate , null);
 
-			if(cursor.moveToFirst()){	
-				do{
-					totalTime = totalTime + cursor.getDouble(1);
-				}while(cursor.moveToNext());
-			}
-			cursor.close();
+		if(cursor.moveToFirst()){	
+			do{
+				totalTime = totalTime + cursor.getDouble(1);
+			}while(cursor.moveToNext());
+		}
+		cursor.close();
 			
-			return totalTime; 
+		return totalTime; 
 	}
-	**/
+	*/
 
 	public static class PlaceholderFragment extends Fragment {
 

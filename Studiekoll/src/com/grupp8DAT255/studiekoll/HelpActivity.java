@@ -53,9 +53,10 @@ public class HelpActivity extends ActionBarActivity {
 	 * @param view
 	 */
 	public void backToMain(View view){
-		Intent okIntent = new Intent(this, MainActivity.class);
-		startActivity(okIntent);
+		Intent backToMainIntent = new Intent(this, MainActivity.class);
+		startActivity(backToMainIntent);
 	}
+	
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */

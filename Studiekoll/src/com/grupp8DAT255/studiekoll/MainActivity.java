@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
     }
     
     /**
-     * Is called when graphbutton is clicked
+     * Is called when graph button is clicked
      */
     public void createGraphActivity(View view){
     	Intent graphIntent = new Intent(this, GraphActivity.class);
@@ -78,7 +78,7 @@ public class MainActivity extends ActionBarActivity {
     }
     
     /**
-     * Called when the user clicks the category_button
+     * Called when the user clicks the data_management_button
      * @param view
      */
     public void createDataManagementActivity(View view){

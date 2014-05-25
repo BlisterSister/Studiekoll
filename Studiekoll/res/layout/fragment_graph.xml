@@ -13,90 +13,70 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center_horizontal|center_vertical"
+        android:layout_gravity="center_horizontal"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/message"
-        android:textStyle="bold" />
-
-    <!-- HÄR SKA TIMMAR FRÅN DATABAS LÄGGAS IN SOM VISAD TEXT -->
+        android:textStyle="bold" 
+        android:gravity="center_horizontal" />
 	
+    <!-- The category and hours layout -->
 	<ScrollView 
 		android:layout_width="fill_parent"
     	android:layout_height="0dp"
-        android:layout_weight="4" >
-
-	    
+        android:layout_weight="5" >	    
 	    
 		<TableLayout
 		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent" >
+		    android:layout_height="wrap_content" >
 
 			<TableRow
-			    android:id="@+id/tableRow5"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content" >
 		  	    
 				<TextView
-				    android:layout_width="fill_parent"
-				    android:layout_height="fill_parent"
-				    android:text="@string/title_catagory_text"
+				    android:text="@string/title_category_text"
 				    android:textStyle="bold"
 					android:layout_weight="1" />
 							    
 				<TextView
-				    android:layout_width="fill_parent"
-				    android:layout_height="fill_parent"
 				    android:text="@string/title_total_hours_text"
 				    android:textStyle="bold"
 					android:layout_weight="1" />
-				
-				
-				
+
 			</TableRow>
 		
-	<TableRow
-			    android:id="@+id/tableRow6"
+			<TableRow
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content" >
 	
-	    
-	    <TextView
-	        		android:id="@+id/dbCatagoryInfo"
-				    android:layout_width="fill_parent"
-				    android:layout_height="fill_parent"
-				    android:text=""
+				<TextView
+	        		android:id="@+id/db_category_info"
 					android:layout_weight="1" />
 				
-	    
-	    <TextView
-	        		android:id="@+id/dbHoursInfo"
-				    android:layout_width="fill_parent"
-				    android:layout_height="fill_parent"
-				    android:text=""
+	    		<TextView
+	        		android:id="@+id/db_hours_info"
 					android:layout_weight="1" />
 				
-	    
-	    
-	</TableRow>		
+	    	</TableRow>		
 					
 		</TableLayout>
-		
-			
-		    
-    </ScrollView>
+		 
+    </ScrollView> <!-- Hours and category layout ends -->
     
     
     <!-- Bottom control layout -->
     <LinearLayout 
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:orientation="horizontal" >
     
         <!-- Date control layout -->
         <LinearLayout 
             android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:orientation="vertical" >
+        	android:orientation="vertical" 
+        	>
         
             <!-- From date control layout -->
         	<LinearLayout 

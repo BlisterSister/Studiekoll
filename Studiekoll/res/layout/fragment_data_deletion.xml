@@ -15,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:text="@string/entry_deletion_message"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:gravity="center_horizontal" />
     
     <Spinner
         android:id="@+id/entry_deletion_spinner"
@@ -41,7 +42,8 @@
         android:layout_above="@+id/category_deletion_spinner"
         android:text="@string/category_deletion_message"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:gravity="center_horizontal" />
     
     <Spinner
         android:id="@+id/category_deletion_spinner"
