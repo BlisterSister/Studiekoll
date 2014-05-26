@@ -94,18 +94,26 @@ public class GraphActivity extends ActionBarActivity {
 		String categoryInfo = "";
 		String sumHours = "";
 		double hour = 0;
+		String twoDigitNumStudyHours = "";
+		double totalHours = 0;
+		DecimalFormat df = new DecimalFormat("#.#"); 
 		
 		//Summing up the hours and formatting the text to show (category and study hours with two decimals)
 		if (c.moveToFirst()){
 			do{ 
 				categoryInfo = categoryInfo + c.getString(0) + "\n";
 				hour = c.getDouble(1);
-				DecimalFormat df = new DecimalFormat("#.#"); 
-				String twoDigitNumStudyHours = df.format(hour);
+				totalHours = totalHours + hour; //Summing up the total hours
+				twoDigitNumStudyHours = df.format(hour);//converting to a two decimal string
 				sumHours = sumHours + twoDigitNumStudyHours + "h" + "\n";  
 			} while(c.moveToNext());
 		}
 		c.close(); //Closes the cursor
+		
+		//Adding the total sum of hours to the text to be shown
+		categoryInfo = categoryInfo + "\n" + "Totalt";
+		twoDigitNumStudyHours = df.format(totalHours);
+		sumHours = sumHours + "\n" + twoDigitNumStudyHours + "h";
 		
 		//Send hours and category to view 
 		TextView categoryInfoTextView = (TextView) findViewById(R.id.db_category_info);
